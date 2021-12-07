@@ -1,7 +1,7 @@
 import enchant
 
 english_vocab = enchant.Dict("en_US")
-only_eng=['comparator', 'nano', 'yes', 'no']
+only_eng=['comparator', 'nano', 'yes', 'no', 'pycharm']
 
 def is_english_word(word, res=[]):
     only_eng.extend(res)

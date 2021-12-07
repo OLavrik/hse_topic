@@ -1,6 +1,6 @@
 import itertools
 import re
-
+from utils.eng import is_english_word
 import nltk
 from nltk.corpus import stopwords
 
@@ -22,6 +22,12 @@ class TextPrepare():
         if lemma:
             tokens = normalize(tokens)
         tokens = self.remove_stop_words(tokens)
+        if english:
+            res=[]
+            for _ in tokens:
+                if is_english_word(_):
+                    res.append(_)
+            tokens=res
         self.vocab.extend(tokens)
         self.vocab = list(set(self.vocab))
         return " ".join(tokens).strip()
