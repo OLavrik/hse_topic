@@ -25,3 +25,6 @@ class ModelCTM:
 
     def cloud(self, topic_id=1, n_words=10):
         self.model.get_wordcloud(topic_id=topic_id, n_words=n_words)
+
+    def predict_topic(self, id_):
+        return self.model[id_].argmax(-1)
