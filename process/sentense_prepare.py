@@ -13,16 +13,17 @@ class TextPrepare():
     regular_language = r'\#.*?\s'
     english_stopwords = stopwords.words("english")
     porter = nltk.PorterStemmer()
-    vocab=[]
+    vocab = []
 
-    def main_prepare_query(self, query):
+    def main_prepare_query(self, query, lemma=True, english=False):
         query = re.sub(r' +', " ", query)
         query = self.separate_query(query)
         tokens = query.split(" ")
-        tokens = normalize(tokens)
+        if lemma:
+            tokens = normalize(tokens)
         tokens = self.remove_stop_words(tokens)
         self.vocab.extend(tokens)
-        self.vocab=list(set(self.vocab))
+        self.vocab = list(set(self.vocab))
         return " ".join(tokens).strip()
 
     def get_vocab(self):
