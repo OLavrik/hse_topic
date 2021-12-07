@@ -27,4 +27,4 @@ class ModelCTM:
         self.model.get_wordcloud(topic_id=topic_id, n_words=n_words)
 
     def predict_topic(self, id_, n):
-        return self.model.get_thetas(id_, n=n)
+        return self.model.get_thetas(id_, n_samples=n)
